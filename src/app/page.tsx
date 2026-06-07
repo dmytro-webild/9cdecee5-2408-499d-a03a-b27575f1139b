@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import ReactLenis from "lenis/react";
-import ContactCTA from '@/components/sections/contact/ContactCTA';
+import ContactSplitForm from '@/components/sections/contact/ContactSplitForm';
 import FaqBase from '@/components/sections/faq/FaqBase';
 import FeatureBorderGlow from '@/components/sections/feature/featureBorderGlow/FeatureBorderGlow';
 import FooterMedia from '@/components/sections/footer/FooterMedia';
@@ -250,20 +250,21 @@ export default function LandingPage() {
   </div>
 
   <div id="contact" data-section="contact">
-      <ContactCTA
+      <ContactSplitForm
       useInvertedBackground={false}
-      background={{
-        variant: "sparkles-gradient"}}
-      tag="Contattaci"
-      tagIcon={Phone}
-      title="Prenota il Tuo Momento di Bellezza"
-      description="Non aspettare! Contattaci oggi stesso per prenotare il tuo appuntamento e lasciati trasformare dal nostro team di esperti."
-      buttons={[
-        {
-          text: "Chiama Ora: 339 339 8616",          href: "tel:+393393398616"},
-        {
-          text: "Vieni a Trovarci",          href: "https://www.google.com/maps/search/L%EF%BC%86Z+Hair+Salon+V.+Struppa,+29R,+16165+Genova+GE"},
+      title="Contattaci per Prenotare"
+      description="Compila il modulo sottostante o chiamaci direttamente per fissare il tuo appuntamento. Siamo qui per trasformare il tuo stile."
+      inputs={[
+        { name: "name", type: "text", placeholder: "Nome Completo", required: true },
+        { name: "email", type: "email", placeholder: "La tua Email", required: true },
+        { name: "phone", type: "tel", placeholder: "Numero di Telefono", required: false },
       ]}
+      textarea={{ name: "message", placeholder: "Il tuo Messaggio", rows: 4, required: true }}
+      buttonText="Invia Messaggio"
+      onSubmit={(data) => console.log(data)}
+      imageSrc="http://img.b2bpic.net/free-photo/hairdresser-standing-with-hand-pocket_23-2148148970.jpg"
+      imageAlt="Parrucchiere in attesa di clienti"
+      mediaPosition="right"
     />
   </div>
 
